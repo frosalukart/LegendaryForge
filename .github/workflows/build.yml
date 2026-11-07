@@ -1,0 +1,59 @@
+name: Build LegendaryForge
+
+on:
+  push:
+    branches: [ main, master ]
+    tags: [ 'v*' ]
+  pull_request:
+  workflow_dispatch:        # tombol "Run workflow" manual
+
+permissions:
+  contents: write           # perlu untuk membuat Release saat push tag
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup JDK 25
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '25'
+          cache: maven
+
+      - name: Build jar
+        run: mvn -B clean package
+
+      - name: Upload jar (Artifacts)
+        uses: actions/upload-artifact@v4
+        with:
+          name: LegendaryForge-jar
+          path: target/LegendaryForge-*.jar
+
+      - name: Zip resource pack
+        run: cd resourcepack && zip -r ../LegendaryForge-ResourcePack.zip . -x "_legacy_pre_1.21.4/*"
+
+      - name: Zip Bedrock pack
+        run: cd bedrock-pack && zip -r ../LegendaryForge-Bedrock.mcpack .
+
+      - name: Upload packs (Artifacts)
+        uses: actions/upload-artifact@v4
+        with:
+          name: LegendaryForge-packs
+          path: |
+            LegendaryForge-ResourcePack.zip
+            LegendaryForge-Bedrock.mcpack
+            geyser/custom_mappings/legendaryforge.json
+
+      # Hanya saat kamu push tag, mis. v1.0.0
+      - name: Create Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            target/LegendaryForge-*.jar
+            LegendaryForge-ResourcePack.zip
+            LegendaryForge-Bedrock.mcpack
+            geyser/custom_mappings/legendaryforge.json
