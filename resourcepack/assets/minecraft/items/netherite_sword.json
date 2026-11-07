@@ -1,0 +1,27 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "entries": [
+      {
+        "threshold": 1003.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "legendaryforge:item/stormcaller_blade"
+        }
+      },
+      {
+        "threshold": 1004.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "legendaryforge:item/ignis_core_blade"
+        }
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/netherite_sword"
+    }
+  }
+}
