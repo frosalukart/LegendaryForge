@@ -1,0 +1,302 @@
+# =====================================================================
+#  items.yml — SATU SECTION = SATU ITEM LEGENDARIS.
+#  Tambah item baru: copy salah satu section, ganti id, model-data, lalu /legendary reload
+#
+#  PENTING (sinergi RaceCore): WeaponSynergyListener bawaan RaceCore mencocokkan
+#  nama item (display-name, tanpa warna) dengan kata: "terra breaker", "leviathan",
+#  "ignis", "zephyr", "luminance", "void scythe", "stormcaller". Jangan ubah kata itu.
+#
+#  Field:
+#   tier            SUPREME | MID | BASE
+#   material        Material dasar item
+#   model-data      Custom Model Data (harus sama dengan resource pack & mapping Geyser)
+#   attributes      generic.* tanpa prefix: attack_damage, attack_speed, max_health, ...
+#   passive.id      ID passive (kode) ; passive.effects = efek konstan saat dipegang
+#   skill.trigger   RIGHT_CLICK | SHIFT_RIGHT_CLICK | LEFT_CLICK
+#   requirements    auraskills: {skill: level} ; races: [daftar race id RaceCore]
+#   race-bonus      bonus bila pemakai race tertentu (damage-multiplier, cooldown-multiplier)
+#   stat-bonus      bonus AuraSkills Stat saat dipegang (strength, toughness, wisdom, ...)
+#   xp-boost        persen bonus XP AuraSkills per skill saat dipegang
+# =====================================================================
+
+# ============================ TIER 1: SUPREME ============================
+luminance_scepter:
+  tier: SUPREME
+  material: BLAZE_ROD
+  model-data: 1001
+  display-name: "&e&lLuminance Scepter"
+  nickname: "&6The Sun's Wrath &7/ &6Hallowed Dawn"
+  element: "&eCahaya"
+  lore:
+    - "&7Ditempa dari pecahan inti matahari purba yang"
+    - "&7jatuh ke dimensi Overworld. Dipegang para dewa"
+    - "&7pelindung sebelum era kehancuran."
+  unbreakable: true
+  enchants: {sharpness: 7, looting: 5}
+  attributes:
+    attack_damage: 11
+    attack_speed: -2.4
+  passive:
+    id: DIVINE_GRACE
+    name: "Divine Grace & Aura of Truth"
+    description: "Musuh sekitar Glowing permanen (tembus dinding), rekan regen HP."
+    radius: 14
+  skill:
+    id: JUDGMENT_RAY
+    name: "Judgment Ray (Murka Sang Surya)"
+    description: "Pilar laser cahaya: Levitation, damage masif, Blindness total."
+    trigger: RIGHT_CLICK
+    cooldown: 25
+    mana-cost: 60
+    damage: 18
+    radius: 5
+    range: 28
+  requirements:
+    auraskills: {fighting: 40}
+    races: []                      # kosong = semua race
+  race-bonus:
+    angel:  {damage-multiplier: 1.30, cooldown-multiplier: 0.75}
+    nephilim: {damage-multiplier: 1.20, cooldown-multiplier: 0.85}
+    fallen_angel: {damage-multiplier: 0.80}
+  stat-bonus: {wisdom: 25, strength: 10}
+  xp-boost: {fighting: 15}
+
+void_scythe:
+  tier: SUPREME
+  material: NETHERITE_HOE
+  model-data: 1002
+  display-name: "&5&lVoid Scythe"
+  nickname: "&dECLIPSE &7/ &dThe Reaper of Realities"
+  element: "&8Kegelapan"
+  lore:
+    - "&7Sabit terkutuk dari celah terdalam The End."
+    - "&7Jiwa yang ditebas tak kembali ke reinkarnasi,"
+    - "&7terperangkap selamanya di dalam bilahnya."
+  unbreakable: true
+  enchants: {sharpness: 7, sweeping_edge: 3}
+  attributes:
+    attack_damage: 12
+    attack_speed: -2.2
+  passive:
+    id: SOUL_HARVESTER
+    name: "Soul Harvester (Pemanen Jiwa)"
+    description: "Kill mob/player: Absorption + Strength V seketika."
+    absorption-level: 2        # 0-based (2 = Absorption III)
+    strength-level: 4          # 4 = Strength V
+    duration: 200              # tick
+  skill:
+    id: ABYSSAL_RIFT
+    name: "Abyssal Rift (Celah Kehampaan)"
+    description: "Pusaran gravitasi 8 blok: tarik musuh, Darkness, Wither IV, melayang."
+    trigger: RIGHT_CLICK
+    cooldown: 30
+    mana-cost: 70
+    radius: 8
+    duration: 40
+  requirements:
+    auraskills: {fighting: 40}
+    races: []
+  race-bonus:
+    fallen_angel: {damage-multiplier: 1.25, cooldown-multiplier: 0.8}
+    vampire:      {damage-multiplier: 1.20, cooldown-multiplier: 0.85}
+    lich:         {damage-multiplier: 1.25}
+    demon:        {damage-multiplier: 1.15}
+    angel:        {damage-multiplier: 0.85}
+  stat-bonus: {strength: 20, crit_damage: 15}
+  xp-boost: {fighting: 20}
+
+stormcaller_blade:
+  tier: SUPREME
+  material: NETHERITE_SWORD
+  model-data: 1003
+  display-name: "&b&lStormcaller Blade"
+  nickname: "&3Thundercrash &7/ &3The Skybreaker"
+  element: "&bPetir"
+  lore:
+    - "&7Ditempa di jantung badai petir abadi dari"
+    - "&7sambaran petir pertama yang menyentuh bumi."
+  unbreakable: true
+  enchants: {sharpness: 7, sweeping_edge: 3}
+  attributes:
+    attack_damage: 9
+    attack_speed: -2.0
+    movement_speed: 0.02
+  passive:
+    id: OVERCHARGE
+    name: "Overcharge"
+    description: "Setiap serangan ke-4 memicu Chain Lightning."
+    every: 4
+    chain-targets: 3
+    chain-radius: 6
+    chain-damage: 8
+  skill:
+    id: JUDGMENT_OF_THOR
+    name: "Judgment of Thor (Kilatan Dewa Petir)"
+    description: "Dash secepat kilat menembus musuh, jejak petir, setrum semua target."
+    trigger: RIGHT_CLICK
+    cooldown: 15
+    mana-cost: 40
+    damage: 12
+    distance: 14
+  requirements:
+    auraskills: {agility: 30}
+    races: []
+  race-bonus:
+    elf:       {cooldown-multiplier: 0.8}
+    dragonkin: {damage-multiplier: 1.20}
+  stat-bonus: {speed: 10, strength: 10}
+  xp-boost: {agility: 15}
+
+# ============================= TIER 2: MID ==============================
+ignis_core_blade:
+  tier: MID
+  material: NETHERITE_SWORD
+  model-data: 1004
+  display-name: "&c&lIgnis Core Blade"
+  nickname: "&6Magma's Heart &7/ &6Purgatory Edge"
+  element: "&cApi"
+  lore:
+    - "&7Intinya terbuat dari magma cair abadi Nether."
+    - "&7Panasnya melelehkan perisai terkuat dalam hitungan detik."
+  unbreakable: true
+  enchants: {sharpness: 6, fire_aspect: 4}
+  attributes: {attack_damage: 8, attack_speed: -2.3}
+  passive:
+    id: MAGMA_BLOOD
+    name: "Magma Blood (Darah Magma)"
+    description: "Kebal api permanen; tiap tebasan membakar kuat."
+    burn-ticks: 160
+    effects: ["fire_resistance:0"]
+  skill:
+    id: PURGATORY_SLASH
+    name: "Purgatory Slash (Tebasan Penyucian Api)"
+    description: "Gelombang api sabit melahap area, membakar dengan Soul Fire."
+    trigger: RIGHT_CLICK
+    cooldown: 10
+    mana-cost: 30
+    damage: 10
+    range: 12
+    burn-ticks: 200
+  requirements:
+    auraskills: {fighting: 20}
+    races: []
+  race-bonus:
+    demon:     {damage-multiplier: 1.20}
+    dragonkin: {damage-multiplier: 1.25, cooldown-multiplier: 0.85}
+    shark:     {damage-multiplier: 0.85}
+  stat-bonus: {strength: 8}
+  xp-boost: {}
+
+leviathans_trident:
+  tier: MID
+  material: TRIDENT
+  model-data: 1005
+  display-name: "&9&lLeviathan's Trident"
+  nickname: "&bOceanic Sovereign &7/ &bAbyssal Piercer"
+  element: "&9Air"
+  lore:
+    - "&7Diukir dari tulang rahang Leviathan penguasa"
+    - "&7palung samudra terdalam."
+  unbreakable: true
+  enchants: {loyalty: 3, impaling: 5}
+  attributes: {attack_damage: 8, attack_speed: -2.5}
+  passive:
+    id: TIDAL_FLOW
+    name: "Tidal Flow (Aliran Pasang Surut)"
+    description: "Speed & Dolphin's Grace dekat air / saat hujan."
+    effects-active: ["speed:2", "dolphins_grace:0"]
+  skill:
+    id: TSUNAMI_PRISON
+    name: "Tsunami Prison (Kurungan Tsunami)"
+    description: "Bola air raksasa: musuh Slowness maksimal, rekan setim pulih HP."
+    trigger: RIGHT_CLICK
+    cooldown: 22
+    mana-cost: 50
+    radius: 6
+    range: 20
+    duration: 100
+  requirements:
+    auraskills: {fighting: 20}
+    races: []
+  race-bonus:
+    shark: {damage-multiplier: 1.20, cooldown-multiplier: 0.7}
+    dragonkin: {damage-multiplier: 0.9}
+  stat-bonus: {toughness: 8}
+  xp-boost: {fishing: 20}
+
+terra_breaker:
+  tier: MID
+  material: NETHERITE_AXE
+  model-data: 1006
+  display-name: "&6&lTerra Breaker"
+  nickname: "&eMountain Splitter &7/ &eTitan's Anchor"
+  element: "&6Tanah"
+  lore:
+    - "&7Kapak netherite dan batu purba seberat pegunungan."
+    - "&7Dibuat untuk meruntuhkan benteng dengan satu hantaman."
+  unbreakable: true
+  enchants: {sharpness: 6, efficiency: 6}
+  attributes: {attack_damage: 13, attack_speed: -3.0}
+  passive:
+    id: TITAN_STANCE
+    name: "Titan Stance (Kuda-Kuda Titan)"
+    description: "Kebal Knockback total + Resistance."
+    effects: ["resistance:0"]
+  skill:
+    id: EARTHQUAKE_SHATTER
+    name: "Earthquake Shatter (Hantaman Gempa Bumi)"
+    description: "Hantam tanah: musuh terlontar ke udara (Levitation + Slowness)."
+    trigger: RIGHT_CLICK
+    cooldown: 18
+    mana-cost: 45
+    damage: 12
+    radius: 7
+  requirements:
+    auraskills: {fighting: 20}
+    races: []
+  race-bonus:
+    dwarf: {damage-multiplier: 1.25, cooldown-multiplier: 0.8}
+    giant: {damage-multiplier: 1.20}
+    ogre:  {damage-multiplier: 1.15}
+  stat-bonus: {toughness: 12, strength: 8}
+  xp-boost: {mining: 15, foraging: 15}
+
+# ============================= TIER 3: BASE =============================
+zephyr_tempest_bow:
+  tier: BASE
+  material: BOW
+  model-data: 1007
+  display-name: "&a&lZephyr Tempest Bow"
+  nickname: "&fSkywhisper &7/ &fGale's Embrace"
+  element: "&aAngin"
+  lore:
+    - "&7Ditenun dari hembusan angin topan dan bulu"
+    - "&7makhluk udara mistis. Kecepatan di atas segalanya."
+  unbreakable: true
+  enchants: {power: 5, infinity: 1}
+  attributes: {}
+  passive:
+    id: AIR_WALKER
+    name: "Air Walker"
+    description: "Fall Damage nol + Speed II saat dipegang."
+    effects: ["speed:1"]
+  skill:
+    id: CYCLONE_DASH
+    name: "Cyclone Dash (Pukulan Topan)"
+    description: "Tiup musuh mundur; menunduk lalu aktifkan = Rocket Jump."
+    trigger: SHIFT_RIGHT_CLICK
+    cooldown: 8
+    mana-cost: 20
+    range: 8
+    knockback: 2.4
+    launch: 1.7
+  requirements:
+    auraskills: {agility: 10}
+    races: []
+  race-bonus:
+    elf:   {cooldown-multiplier: 0.75}
+    bird:  {cooldown-multiplier: 0.6}
+    fairy: {cooldown-multiplier: 0.8}
+    angel: {cooldown-multiplier: 0.85}
+  stat-bonus: {speed: 6}
+  xp-boost: {archery: 20, agility: 10}

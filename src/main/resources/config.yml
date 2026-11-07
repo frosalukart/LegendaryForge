@@ -1,0 +1,28 @@
+# ======================= LegendaryForge config =======================
+prefix: "&8[&6Legendary&8] &r"
+
+# Tampilan cooldown
+display:
+  actionbar: true        # actionbar READY / cooldown saat memegang item
+  bossbar-cast: true     # bossbar saat skill aktif (cast bar)
+
+# ------------------------- Hook RaceCore ----------------------------
+racecore:
+  enabled: true
+  # Human = "Bisa menggunakan semua senjata legendaris" (sesuai races/default.yml)
+  human-bypass: true
+
+# ------------------------- Hook AuraSkills --------------------------
+auraskills:
+  enabled: true
+  # Skill XP Boost hanya berlaku saat item dipegang (lihat 'xp-boost' di items.yml)
+
+# Ally = pemain di scoreboard team yang sama dengan caster
+messages:
+  cooldown: "&cSkill masih cooldown &e{time}s"
+  no-mana: "&cMana tidak cukup! &7(butuh &b{cost}&7)"
+  race-denied: "&cRace kamu (&f{race}&c) tidak bisa memakai item ini. &7Butuh: &e{allowed}"
+  level-denied: "&cButuh AuraSkills &e{skill} &clevel &e{level}&c."
+  race-bonus: "&d✦ Bonus Race {race}&d aktif!"
+  given: "&aMemberikan &f{item} &akepada &e{player}"
+  reloaded: "&aItems & config direload (&e{count}&a item)."

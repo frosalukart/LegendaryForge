@@ -1,0 +1,16 @@
+name: LegendaryForge
+version: '1.0.0'
+main: com.legendaryforge.LegendaryForge
+api-version: '26.2'
+description: Legendary custom items dengan ability, hook AuraSkills & RaceCore.
+softdepend: [AuraSkills, RaceCore, floodgate, Geyser-Spigot]
+commands:
+  legendary:
+    description: Perintah utama LegendaryForge
+    usage: /legendary <menu|give|list|reload>
+    aliases: [lf, legend]
+    permission: legendaryforge.use
+permissions:
+  legendaryforge.use: {default: true}
+  legendaryforge.admin: {default: op}
+  legendaryforge.bypass: {default: op, description: Abaikan syarat race & level}

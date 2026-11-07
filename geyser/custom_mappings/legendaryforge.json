@@ -1,0 +1,80 @@
+{
+  "format_version": 1,
+  "items": {
+    "minecraft:blaze_rod": [
+      {
+        "name": "luminance_scepter",
+        "custom_model_data": 1001,
+        "display_name": "Luminance Scepter",
+        "icon": "luminance_scepter",
+        "allow_offhand": true,
+        "display_handheld": true,
+        "texture_size": 64
+      }
+    ],
+    "minecraft:netherite_hoe": [
+      {
+        "name": "void_scythe",
+        "custom_model_data": 1002,
+        "display_name": "Void Scythe",
+        "icon": "void_scythe",
+        "allow_offhand": true,
+        "display_handheld": true,
+        "texture_size": 64
+      }
+    ],
+    "minecraft:netherite_sword": [
+      {
+        "name": "stormcaller_blade",
+        "custom_model_data": 1003,
+        "display_name": "Stormcaller Blade",
+        "icon": "stormcaller_blade",
+        "allow_offhand": true,
+        "display_handheld": true,
+        "texture_size": 64
+      },
+      {
+        "name": "ignis_core_blade",
+        "custom_model_data": 1004,
+        "display_name": "Ignis Core Blade",
+        "icon": "ignis_core_blade",
+        "allow_offhand": true,
+        "display_handheld": true,
+        "texture_size": 64
+      }
+    ],
+    "minecraft:trident": [
+      {
+        "name": "leviathans_trident",
+        "custom_model_data": 1005,
+        "display_name": "Leviathan's Trident",
+        "icon": "leviathans_trident",
+        "allow_offhand": true,
+        "display_handheld": true,
+        "texture_size": 64
+      }
+    ],
+    "minecraft:netherite_axe": [
+      {
+        "name": "terra_breaker",
+        "custom_model_data": 1006,
+        "display_name": "Terra Breaker",
+        "icon": "terra_breaker",
+        "allow_offhand": true,
+        "display_handheld": true,
+        "texture_size": 64
+      }
+    ],
+    "minecraft:bow": [
+      {
+        "name": "zephyr_tempest_bow",
+        "custom_model_data": 1007,
+        "display_name": "Zephyr Tempest Bow",
+        "icon": "zephyr_tempest_bow",
+        "allow_offhand": true,
+        "display_handheld": true,
+        "texture_size": 64
+      }
+    ]
+  }
+}

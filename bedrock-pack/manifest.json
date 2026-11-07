@@ -1,0 +1,29 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "LegendaryForge Bedrock",
+    "description": "Icons for Legendary Items",
+    "uuid": "6f1d3c0e-2b7a-4c55-9a41-1e8b7d5a0c01",
+    "version": [
+      1,
+      0,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      21,
+      0
+    ]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "b3a9e2d4-7c18-4f06-8d2b-5a0f9c3e7e02",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ]
+}

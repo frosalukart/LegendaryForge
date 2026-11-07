@@ -1,0 +1,27 @@
+{
+  "resource_pack_name": "legendaryforge",
+  "texture_name": "atlas.items",
+  "texture_data": {
+    "luminance_scepter": {
+      "textures": "textures/items/luminance_scepter"
+    },
+    "void_scythe": {
+      "textures": "textures/items/void_scythe"
+    },
+    "stormcaller_blade": {
+      "textures": "textures/items/stormcaller_blade"
+    },
+    "ignis_core_blade": {
+      "textures": "textures/items/ignis_core_blade"
+    },
+    "leviathans_trident": {
+      "textures": "textures/items/leviathans_trident"
+    },
+    "terra_breaker": {
+      "textures": "textures/items/terra_breaker"
+    },
+    "zephyr_tempest_bow": {
+      "textures": "textures/items/zephyr_tempest_bow"
+    }
+  }
+}
